@@ -1,0 +1,20 @@
+    .table {
+        margin-top: 3em;
+        max-width: 80vw;
+        border:1px solid grey;    
+
+        .seleciona{
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+        th {
+            
+            color: #1879bf !important;
+        }
+    
+         td, th {
+            border:none !important;
+          } 
+
+    }

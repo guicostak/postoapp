@@ -1,0 +1,41 @@
+.label-block{
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    align-items: center;
+    padding-left: 0.5rem;
+    margin-bottom: 1vh;
+    color: white;
+    user-select: none;
+}
+
+.input-block{
+    display: flex;
+    align-items: center;
+    padding-right: 1vw;
+    outline: none;
+    background-color: #1879bf;
+    border: 3px solid white;
+    width: fill;
+    height: 6vh;
+    padding-inline-start: 0.5rem;
+    gap: 1vw;
+    
+input{
+    outline: none;
+    color: white;
+    background-color: #1879bf;
+    border: none;
+    width: fill;
+    height: 5vh;
+
+    &::placeholder{
+    color: white;
+    user-select: none;
+    }
+}
+
+}
+.textfield{
+    margin-block: 2vh;
+}

@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400&display=swap%27');
+@import '../../index.scss';
+
+#listausuarios{
+    animation: aparecer 0.5s ease-in-out;
+    height: 100vh;  
+}
+
+.topbar {
+    padding-top: 2em;
+    margin-left: 90px;
+}
+
+
+#titulo {
+    color: #1879BF;
+    font-family: 'Poppins', sans-serif;
+
+}
+

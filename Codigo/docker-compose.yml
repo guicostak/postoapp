@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: some-postgres
+    environment:
+      POSTGRES_DB: tis_prod
+      POSTGRES_USER: tis_prod
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5432:5432"
+
+  spring-app:
+    build:
+      context: ./posto-ipiranga
+    container_name: back-end-posto
+    ports:
+      - "7000:7000"
+    depends_on:
+      - postgres
+    environment:
+      DB_URL: jdbc:postgresql://some-postgres:5432/
+      PORT: 7000
+
+  react-app:
+    build:
+      context: ./postoapp
+    container_name: react-app
+    ports:
+      - "3000:3000"

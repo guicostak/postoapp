@@ -1,0 +1,14 @@
+.input-pesquisa {
+
+    display: flex;
+    gap: 1vw;
+    margin-top: 3vh;
+    input{
+        outline: none;
+        padding-left: 1vw;
+        width: 50vw;
+       border:1px solid #1879bf;
+       background-color: white;
+       border-radius: 10px;
+    }
+}

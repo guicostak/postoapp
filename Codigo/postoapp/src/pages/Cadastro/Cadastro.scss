@@ -1,0 +1,8 @@
+@import '../../index.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.cadastro {
+    @include flexCenter(column);
+    height: 100vh;
+    background-color: #ffd100;
+}

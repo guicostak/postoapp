@@ -1,0 +1,47 @@
+name: Github CI
+on:
+  push:
+    tags: [ 'v*.*.*' ]
+env:
+  REGISTRY: lucaslotti
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest # Os comandos serão executados em um sistema operacional Linux
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2 # Faz o checkout do código recebido
+
+      - name: Obter última versão
+        id: get_latest_version
+        run: |
+          latest_version=$(curl --silent "https://api.github.com/repos/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti3-6654100-posto-ipiranga/releases/latest" | grep -Po '"tag_name":\s*"\K[^"]+')
+          echo "::set-output name=latest_version::$latest_version"
+
+      - name: Exibir última versão
+        run: |
+          echo "A última versão do repositório é ${{ steps.get_latest_version.outputs.latest_version }}"
+
+      - name: Build
+        run: |
+          docker build Codigo/posto-ipiranga -t posto-ipiranga
+
+          docker build Codigo/postoapp -t postoapp
+
+      - name: tag
+        run: |
+          docker tag posto-ipiranga ${{ env.REGISTRY }}/posto-ipiranga:${{ steps.get_latest_version.outputs.latest_version }}
+          
+          docker tag postoapp ${{ env.REGISTRY }}/postoapp:${{ steps.get_latest_version.outputs.latest_version }}
+
+      - name: Log into registry ghcr.io
+        uses: docker/login-action@v2
+        with:
+          username: lucaslotti
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: push
+        run: |
+          docker push  ${{ env.REGISTRY }}/posto-ipiranga:${{ steps.get_latest_version.outputs.latest_version }}
+
+          docker push  ${{ env.REGISTRY }}/postoapp:${{ steps.get_latest_version.outputs.latest_version }}

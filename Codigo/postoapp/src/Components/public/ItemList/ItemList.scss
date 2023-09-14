@@ -1,0 +1,22 @@
+
+.itemList{
+    cursor: pointer;
+    padding-block: 1rem;
+    padding-left: 1rem;
+    border-top: 1px solid var(--dark-blue);
+    background-color: var(--main-color);
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--dark-blue);
+    border-right: 6px solid var(--dark-blue);
+
+    &:hover{
+        transition: 0.3s;
+        filter: brightness(0.95);
+    }
+}
+
+.itemList:last-of-type{
+    border-bottom: 1px solid var(--dark-blue);
+}

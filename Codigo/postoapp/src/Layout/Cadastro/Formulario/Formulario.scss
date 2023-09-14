@@ -1,0 +1,52 @@
+.formulario-cadastro{
+    border-radius: 10px;
+    border-radius: 10px;
+    animation: aparecerCadastro 1s ease-in-out;
+
+
+.card-top {
+    background-color: #088eef;
+    font-family: var(--main-font);
+    color: white;
+    text-align: center;
+    padding: 2vh 2vw;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+   
+    h1{
+        
+        font-size: 2em; 
+        b{
+            font-weight: 800;
+        }
+    }
+    
+}
+
+.card-bottom {
+        background-color: #1879bf;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        flex-direction: column;
+
+        .campos{
+            padding: 1vh 6vw 2vh 6vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: right;
+
+            span{
+                text-align: right;
+                color: white;
+                cursor: pointer;
+            }
+            .senha{
+                cursor: pointer;
+            }
+        }      
+    }
+
+}

@@ -1,0 +1,22 @@
+.botao-cadastro-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+    position: absolute;
+    padding: 1rem;
+    user-select: none;
+    bottom: 0;
+    color: white;
+    background-color: #1879bf;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    height: 7vh;     
+    transition: 0.3s;
+    
+    &:hover{
+    transition: 0.3s;
+    filter: brightness(0.9);
+    }
+}
