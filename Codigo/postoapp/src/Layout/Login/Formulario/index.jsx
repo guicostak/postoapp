@@ -5,17 +5,19 @@ import { faEnvelope, faLock, faEyeSlash, faEye } from '@fortawesome/free-solid-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Botao from '../../../Components/public/Botao';
 import Swal from 'sweetalert2';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../../Context/UserContext';
 
 
 const Formulario = () => {
     const [senhaStatus, setSenhaStatus] = useState('password')
     const [senhaIcone, setSenhaIcone] = useState(faEyeSlash)
+    const {dadosUserContext, setDadosUserContext} = useContext(UserContext);
     const [dadosUsuario, setDadosUsuario] = useState({ 
-        email: '',
-        senha: ''
-    })
+      email: '',
+      senha: ''
+    });
     const [emailRecuperação, setEmailRecuperacao] = useState('')
     const navigate = useNavigate();
 
@@ -60,7 +62,6 @@ const Formulario = () => {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(dadosUsuario);
     
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     
@@ -94,12 +95,23 @@ const Formulario = () => {
         }
     
         const responseData = await response.json();
-        
+        setDadosUserContext({
+          status: 'logado',
+          userId: responseData.id
+        })
         localStorage.setItem('status', 'logado')
         localStorage.setItem('userID', responseData.id);
-        console.log(localStorage.getItem('userID'))
-
-        navigate('/listausuarios');
+        localStorage.setItem('perfil', responseData.perfil);
+     
+        if(responseData.perfil === 'ADMINISTRADOR') {
+          localStorage.setItem('itemMenu', 'listausuarios');
+          navigate('/listausuarios');
+        }
+        else {
+          localStorage.setItem('itemMenu', 'listaprodutos');
+          navigate('/listaprodutos');
+        }
+      
       } catch (error) {
         Swal.fire({
           icon: 'error',

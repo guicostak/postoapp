@@ -7,6 +7,16 @@
   --dark-blue: #1879bf;
 }
 
+
+.conteudo-pagina{ 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  animation: aparecer 0.4s ease-in-out;
+  overflow-x: hidden;
+}
+
 @mixin flexCenter($flex-direction){
   display: flex;
   flex-direction: $flex-direction;
@@ -42,3 +52,12 @@
   }
 }
 
+
+@keyframes aparecerModal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

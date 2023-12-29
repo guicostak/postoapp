@@ -1,3 +1,27 @@
 .left-menu{
+ display: flex;
+ flex-direction: column;
+}
 
+.logout-btn {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8vw;
+    font-weight: 800;
+    color: var(--dark-blue);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: white;
+    width: 7vw;
+    height: 5vh;
+    border-bottom-right-radius: 10px;
+    transition: 0.3s;       
+    &:hover {
+        transition: 0.3s;
+        filter: brightness(0.95);
+    }
 }

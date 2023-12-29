@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.postoipiranga.helper.PerfilCliente;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.postoipiranga.model.UsuarioModel;
@@ -14,8 +13,12 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class UsuarioService { 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+
+    private final UsuarioRepository usuarioRepository;
+
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Transactional
     public UsuarioModel save(UsuarioModel usuarioModel) {
@@ -23,7 +26,7 @@ public class UsuarioService {
         final var existePerfilAdm = usuarioRepository.existsByPerfil(usuarioModel.getPerfil());
 
         if(existePerfilAdm)
-            usuarioModel.setPerfil(PerfilCliente.CONSULTA);
+            usuarioModel.setPerfil(PerfilCliente.USUARIO);
 
         return usuarioRepository.save(usuarioModel);
     }

@@ -45,7 +45,6 @@ const Usuario = ({email}) => {
             }
       
             const responseData = await response.json();
-            console.log(responseData);
       
             setDadosUsuario((prevDadosUsuario) => ({
               ...prevDadosUsuario,
@@ -132,8 +131,6 @@ const Usuario = ({email}) => {
                     senha,
                   };
 
-                  console.log(userData)
-
                   fetch(`http://localhost:7000/usuarios/${localStorage.getItem('userID')}`, {
                     method: 'PUT',
                     headers: {
@@ -152,7 +149,7 @@ const Usuario = ({email}) => {
                     })
                     .then((updatedUserData) => {
                       // Handle the updated user data as needed
-                      console.log('User data updated:', updatedUserData);
+              
                       Swal.fire('Dados atualizados com sucesso!', '', 'success');
                       window.location.reload();
                     })

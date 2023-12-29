@@ -1,15 +1,28 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import UserContext from '../../Context/UserContext';
+import ListarProdutos from '../ListarProdutos';
+import { useNavigate } from 'react-router-dom';
 
-const PrivateRoute = ({element: Element, ...rest}) => {
+const PrivateRoute = ({ element: Element, ...rest }) => {
+  const navigate = useNavigate();
+  const value = localStorage.getItem('status');
+  const tipoUsuario = localStorage.getItem('perfil');
 
-    var value = localStorage.getItem('status');
 
-    if(value !== 'logado'){
-    return <Navigate to="/"/> 
-    }
+  if (value !== 'logado') {
+    return <Navigate to="/" />;
+  }
 
-    return <Element {...rest} />
-}
+  if (tipoUsuario === 'GERENTE' && Element.name === 'ListarUsuarios') {
+    return <ListarProdutos />;
+  }
 
-export default PrivateRoute
+  if (tipoUsuario === 'USUARIO' && Element.name !== 'ListarProdutos') {
+    return <ListarProdutos />;
+  }
+
+  return <Element {...rest} />;
+};
+
+export default PrivateRoute;

@@ -19,11 +19,8 @@ WORKDIR app
 
 COPY . .
 
-ENV DB_URL=jdbc:postgresql://168.75.104.24:5432/tis_prod
 
-ENV PORT=7000
-
-RUN mvn clean package -Ddb-url=${DB_URL} -Dport=${PORT}
+RUN mvn clean package
 
 FROM openjdk:17.0.1-jdk-slim as deploy
 
@@ -33,4 +30,4 @@ COPY --from=builder /app/target/*.jar /app.jar
 EXPOSE $PORT
 
 # Comando para executar a aplicação quando o contêiner for iniciado
-CMD ["java", "-jar", "/app.jar"]
+CMD ["java", "-jar", "/app.jar", "--spring.profiles.active=deploy"]

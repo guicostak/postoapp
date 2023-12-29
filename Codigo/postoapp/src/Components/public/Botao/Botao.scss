@@ -17,3 +17,22 @@
     }
 }
 
+.botao-relatorio { 
+    font-weight: 900;
+    font-size: 1.1rem;
+    width: 20vw;
+    margin-top: 5vh;
+    color: white;
+    background-color:  #1879bf;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    height: 10vh;     
+    border-radius: 10px;
+    transition: 0.3s;
+    user-select: none;
+    &:hover{
+    transition: 0.3s;
+    filter: brightness(0.9);
+    }
+}
+

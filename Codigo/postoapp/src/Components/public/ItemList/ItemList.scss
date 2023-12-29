@@ -1,9 +1,11 @@
 
 .itemList{
+    display: flex;
+    flex-direction: row;
     cursor: pointer;
     padding-block: 1rem;
     padding-left: 1rem;
-    border-top: 1px solid var(--dark-blue);
+    border-block: 1px solid var(--dark-blue);
     background-color: var(--main-color);
     transition: 0.3s;
     font-size: 1rem;
@@ -15,8 +17,4 @@
         transition: 0.3s;
         filter: brightness(0.95);
     }
-}
-
-.itemList:last-of-type{
-    border-bottom: 1px solid var(--dark-blue);
 }

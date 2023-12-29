@@ -1,0 +1,27 @@
+@import '../../index.scss';
+
+.card-relatorio {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    gap: 3vh;
+}
+
+.opcao-relatorio {
+    display: flex; 
+    flex-direction: row;
+    gap: 1vw;
+    font-size: 1.2rem;
+    align-items: center;
+
+    input {
+        width: 1rem;
+    }
+}
+
+.table-relatorio{
+    animation: aparecer 0.6s alternate;
+    th{
+        font-size: 1.3rem;
+    }
+}

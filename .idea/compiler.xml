@@ -12,6 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="plf-es-2023-2-ti3-6654100-posto-ipiranga" options="-parameters" />
       <module name="posto-ipiranga" options="-parameters" />
     </option>
   </component>

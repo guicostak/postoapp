@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.1",
+    "html2pdf.js": "^0.10.1",
+    "pdf-lib": "^1.17.1",
     "react-bootbox": "^1.1.1",
     "react-modal": "^3.16.1",
     "sass": "^1.66.1"

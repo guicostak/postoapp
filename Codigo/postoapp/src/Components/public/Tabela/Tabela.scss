@@ -1,7 +1,19 @@
-    .table {
+
+.adicionar{
+    border: none;
+    color: white;
+    padding-inline: 1rem;
+    border-radius: 2px;
+    margin: 0.5rem;
+    &:hover{
+        filter: brightness(0.95);
+    }
+}
+    
+.table {
         margin-top: 3em;
         max-width: 80vw;
-        border:1px solid grey;    
+        border:1px solid grey;
 
         .seleciona{
             display: flex;
@@ -10,11 +22,108 @@
         }
         th {
             
-            color: #1879bf !important;
+            color: #1879bf;
         }
     
          td, th {
-            border:none !important;
+            border: none;
           } 
 
+    .form-check-label{
+        margin-left: 0.8rem;
     }
+
+    .opcoes{
+        display: flex;
+        flex-direction: row;
+        gap: 1vw;
+        .opcao{
+        cursor: pointer;
+        }
+    }
+        
+        .fundo-modal {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.199)
+        }
+
+        .xSair {
+            position: absolute;
+            top: 1%;
+            right: 3%;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .modal {
+            animation: aparecerModal 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: top;
+            gap: 1vh;
+            padding: 2rem;
+            height: auto;
+            width: 30vw;
+            background-color: white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            h1{
+                font-size: 1.8rem;
+                color: var(--dark-blue);
+            }
+            .textfield-modal{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        
+                .label-modal{
+                    font-size: 1.1rem;
+                    margin-top: 1vh ;
+                    text-align: left;
+                    width: 24vw;
+                    text-align: left;
+                }
+                .input-modal{
+                    height: 6vh;
+                    width: 24vw;
+                    padding-left: 1vw;
+                    border: 1px solid grey;
+                }
+            
+            .botoes{
+                margin-top: 2vh;
+                display: flex;
+                flex-direction: row;
+                gap: 1vw;
+                button{
+                    border: none;
+                    color: white;
+                    padding-block: 0.8rem;
+                    padding-inline: 1.6rem;
+                    border-radius: 2px;
+                    margin: 0.5rem;
+                    &:hover{
+                        filter: brightness(0.95);
+                    }
+                }    
+            }
+        }
+    }
+
+
+ 
+    
+ 
+    
+    
